@@ -1,0 +1,277 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Color Reference ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-hue: 349;
+  --sat: 100%;
+  --lig: 61%;
+  --second-hue: 211;
+  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
+  --first-color-alt: hsl(var(--first-hue), 57%, 50%);
+  --title-color: hsl(var(--first-hue), 13%, 81%);
+  --text-color: black;
+  --text-color-light: hsl(var(--second-hue), 4%, 55%);
+  --body-color: rgb(254, 254, 254);
+  --container-color: hsl(var(--second-hue), 32%, 20%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Noto Sans TC", sans-serif;
+  --biggest-font-size: 1.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --tiny-font-size: 0.625rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font-size: 2.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semibold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: var(--first-color-alt);
+  color: var(--body-color);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  margin-left: 4.5rem;
+  margin-right: 4.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.section {
+  padding: 4.5rem 0 1rem;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
+}
+
+.section__title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  font-weight: var(--font-semibold);
+}
+
+.section__subtitle {
+  display: block;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  margin-bottom: 2rem;
+}
+
+/*=============== HEADER & NAV===============*/
+.nav {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo__container {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  color: var(--first-color);
+  cursor: pointer;
+}
+
+.search__sm {
+  display: flex;
+  width: max-content;
+  padding: 0.8rem 1.5rem;
+  column-gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsl(0, 0%, 87%);
+  border-radius: 10rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.search__sm-text {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+}
+
+.search__icon {
+  background-color: var(--first-color);
+  border-radius: 10rem;
+  color: white;
+  display: block;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 4;
+  overflow: visible;
+  height: 25px;
+  width: 25px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.nav__right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+  column-gap: 1rem;
+  font-weight: var(--font-medium);
+  font-size: var(--small-font-size);
+}
+
+.nav__text {
+  cursor: pointer;
+}
+
+.account__icon {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.devider {
+  border-top: 0.5px solid #f4f4f4;
+}
+
+/*=============== HOME ===============*/
+
+/*=============== FOOTER ===============*/
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--second-hue), 8%, 38%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--second-hue), 8%, 26%);
+  border-radius: 0.5rem;
+  width: 0.1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--second-hue), 8%, 38%);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 435px) {
+}
+
+@media screen and (max-width: 400px) {
+}
+
+@media screen and (min-width: 365px) {
+}
+
+@media screen and (max-width: 350px) {
+}
+
+/* For medium devices */
+@media screen and (min-width: 568px) {
+}
+
+@media screen and (min-width: 767px) {
+}
+
+/* For large devices */
+@media screen and (min-width: 996px) {
+}
+
+@media screen and (min-width: 996px) and (min-height: 700px) {
+}
