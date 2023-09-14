@@ -8,17 +8,13 @@
 
   /*========== Color Reference ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-hue: 349;
-  --sat: 100%;
-  --lig: 61%;
   --second-hue: 211;
-  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
-  --first-color-alt: hsl(var(--first-hue), 57%, 50%);
-  --title-color: hsl(var(--first-hue), 13%, 81%);
-  --text-color: black;
-  --text-color-light: hsl(var(--second-hue), 4%, 55%);
-  --body-color: rgb(254, 254, 254);
-  --container-color: hsl(var(--second-hue), 32%, 20%);
+  --first-color: hsl(349, 100%, 61%);
+  --text-color: hsl(0, 0%, 0%);
+  --text-color-light: hsl(0, 0%, 44%);
+  --border-color: hsl(0, 0%, 87%);
+  --body-color: hsl(0, 0%, 100%);
+  --footer-color: hsl(0, 0%, 97%);
 
   /*========== Font and typography ==========*/
   --body-font: "Noto Sans TC", sans-serif;
@@ -27,7 +23,7 @@
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
   --normal-font-size: 12px;
-  --small-font-size: 10rem;
+  --small-font-size: 10px;
   --smaller-font-size: 0.75rem;
   --tiny-font-size: 0.625rem;
 
@@ -70,6 +66,7 @@ input,
 textarea {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
+  background: none;
 }
 
 body {
@@ -104,8 +101,9 @@ img {
 }
 
 ::selection {
-  background-color: var(--first-color-alt);
+  background-color: var(--first-color);
   color: var(--body-color);
+  border-radius: 10px;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -126,24 +124,6 @@ img {
 
 .section {
   padding: 2rem 0 1rem;
-}
-
-.section__title,
-.section__subtitle {
-  text-align: center;
-}
-
-.section__title {
-  font-size: var(--h2-font-size);
-  color: var(--first-color);
-  font-weight: var(--font-semibold);
-}
-
-.section__subtitle {
-  display: block;
-  font-size: var(--smaller-font-size);
-  color: var(--text-color-light);
-  margin-bottom: 2rem;
 }
 
 /*=============== HEADER & NAV===============*/
@@ -193,7 +173,7 @@ header {
 }
 
 .search__sm-devider {
-  border-right: 0.5px solid #f5f4f4;
+  border-right: 0.5px solid var(--border-color);
   height: 20px;
 }
 
@@ -209,10 +189,10 @@ header {
 .search__icon {
   background-color: var(--first-color);
   border-radius: 10rem;
-  color: white;
+  color: var(--body-color);
   display: block;
   fill: none;
-  stroke: currentcolor;
+  stroke: var(--body-color);
   stroke-width: 5;
   overflow: visible;
   height: 32px;
@@ -283,7 +263,7 @@ header {
   scroll-behavior: auto;
 }
 
-.carousel.dragging .new__item {
+.carousel.dragging {
   pointer-events: none;
 }
 
@@ -294,20 +274,24 @@ header {
   overflow: hidden;
 }
 
-.new__item:first-child {
+.slider__item:first-child {
   margin-left: 0;
 }
 
 .slider-icon {
-  font-size: 2rem;
+  font-size: 20px;
   align-self: center;
   cursor: pointer;
   transition: 0.4s;
-  color: black;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10rem;
+  padding: 1px 2px;
 }
 
 .slider-icon-prev {
   color: var(--container-color);
+  
 }
 
 .slider-icon-next:hover {
@@ -316,10 +300,6 @@ header {
 
 .slider-icon-prev:hover {
   transform: translateX(-0.45rem);
-}
-
-.new__arrivals-text a:hover {
-  background-color: var(--first-color-alt);
 }
 
 .slider__item {
@@ -428,16 +408,43 @@ main {
 }
 
 .card__title {
-  color: black;
+  color: var(--text-color);
 }
 
 .card__subtitle,
 .card__desc {
-  color: rgb(178, 178, 178);
+  color: var(--text-color-light);
+  font-weight: 300;
 }
 
 .card__price {
   margin-top: 10px;
+}
+
+/* Continue Btn */
+.continue {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.continue span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+
+.continue button {
+  background-color: var(--text-color);
+  color: var(--body-color);
+  border-radius: 10px;
+  padding: 1rem 2rem;
 }
 
 /*=============== SWIPER ===============*/
@@ -457,7 +464,7 @@ main {
 
 .swiper i {
   color: black;
-  background-color: white;
+  background-color: var(--body-color);
   border-radius: 50%;
   position: absolute;
   font-size: 20px;
@@ -488,7 +495,7 @@ main {
 /*=============== FOOTER ===============*/
 footer {
   display: grid;
-  background-color: rgb(239, 239, 239);
+  background-color: var(--footer-color);
 }
 
 .footer__cat {
@@ -508,11 +515,11 @@ footer {
 }
 
 .help__title {
-  color: black;
+  color: var(--text-color);
 }
 
 .help__subtitle {
-  color: grey;
+  color: var(--text-color-light);
 }
 
 .footer__copyright {
@@ -531,19 +538,17 @@ footer {
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
-  width: 0.6rem;
-  border-radius: 0.5rem;
-  background-color: hsl(var(--second-hue), 8%, 38%);
+  width: 10px;
+  background-color: var(--border-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--second-hue), 8%, 26%);
-  border-radius: 0.5rem;
-  width: 0.1rem;
+  background-color: hsl(0, 0%, 50%);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(var(--second-hue), 8%, 38%);
+  background-color: hsl(0, 0%, 34%);
 }
 
 /*=============== BREAKPOINTS ===============*/
