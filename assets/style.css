@@ -449,7 +449,18 @@ main {
 }
 
 /*=============== SWIPER ===============*/
+.swiper {
+  margin: 0;
+  padding: 0;
+}
 
+.swiper-slide {
+  display: flex;
+}
+
+.swiper-pagination{
+  color: white;
+}
 
 /*=============== FOOTER ===============*/
 
