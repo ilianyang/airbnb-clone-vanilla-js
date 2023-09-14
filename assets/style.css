@@ -3,7 +3,7 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
+  --header-height: 11rem;
 
   /*========== Color Reference ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
@@ -20,14 +20,13 @@
   --container-color: hsl(var(--second-hue), 32%, 20%);
 
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Noto Sans TC", sans-serif;
   --biggest-font-size: 1.75rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
-  --normal-font-size: 0.938rem;
-  --small-font-size: 0.813rem;
+  --normal-font-size: 12px;
+  --small-font-size: 10rem;
   --smaller-font-size: 0.75rem;
   --tiny-font-size: 0.625rem;
 
@@ -38,7 +37,6 @@
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
-  --z-modal: 1000;
 }
 
 /* Responsive typography */
@@ -125,7 +123,7 @@ img {
 }
 
 .section {
-  padding: 4.5rem 0 1rem;
+  padding: 2rem 0 1rem;
 }
 
 .section__title,
@@ -147,6 +145,18 @@ img {
 }
 
 /*=============== HEADER & NAV===============*/
+header {
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+}
+
+.scroll-header {
+  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
+}
+
 .nav {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -155,6 +165,7 @@ img {
 }
 
 .logo__container {
+  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -165,20 +176,28 @@ img {
 
 .search__sm {
   display: flex;
-  width: max-content;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
   column-gap: 2rem;
   align-items: center;
   justify-content: center;
   border: 1px solid hsl(0, 0%, 87%);
   border-radius: 10rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
-.search__sm-text {
+.search__sm:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.search__sm-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
   font-size: var(--small-font-size);
   font-weight: var(--font-medium);
-  cursor: pointer;
 }
 
 .search__icon {
@@ -190,15 +209,16 @@ img {
   stroke: currentcolor;
   stroke-width: 4;
   overflow: visible;
-  height: 25px;
-  width: 25px;
-  padding: 5px;
+  height: 30px;
+  width: 30px;
+  padding: 9px;
   cursor: pointer;
 }
 
 .nav__right {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: max-content;
   column-gap: 1rem;
@@ -221,10 +241,215 @@ img {
 }
 
 .devider {
-  border-top: 0.5px solid #f4f4f4;
+  border-top: 0.5px solid #f5f4f4;
 }
 
-/*=============== HOME ===============*/
+/*=============== SLIDER ===============*/
+.new__arrivals-text {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.new__arrivals-btn {
+  color: white;
+  background-color: var(--first-color);
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-size: var(--small-font-size);
+  transition: 0.4s;
+}
+
+.category {
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  margin-top: 1rem;
+  column-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  scroll-behavior: smooth;
+  column-gap: 2.5rem;
+}
+
+.carousel.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .new__item {
+  pointer-events: none;
+}
+
+.slider__wrapper {
+  margin-top: 1rem;
+  max-width: 1200px;
+  display: flex;
+  overflow: hidden;
+}
+
+.new__item:first-child {
+  margin-left: 0;
+}
+
+.slider-icon {
+  font-size: 2rem;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.4s;
+  color: black;
+}
+
+.slider-icon-prev {
+  color: var(--container-color);
+}
+
+.slider-icon-next:hover {
+  transform: translateX(0.45rem);
+}
+
+.slider-icon-prev:hover {
+  transform: translateX(-0.45rem);
+}
+
+.new__arrivals-text a:hover {
+  background-color: var(--first-color-alt);
+}
+
+.slider__item {
+  display: grid;
+  row-gap: 10px;
+  align-items: center;
+  justify-items: center;
+  opacity: 70%;
+  transition: 0.4s ease;
+}
+
+.slider__img {
+  width: 25px;
+  justify-self: center;
+}
+
+.slider__item:hover {
+  opacity: 100%;
+}
+
+.slider__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--smaller-font-size);
+}
+
+.silder__filter-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: var(--smaller-font-size);
+  cursor: pointer;
+}
+
+/* For small devices */
+@media screen and (max-width: 657px) {
+  .new__arrivals {
+    display: block;
+    padding-top: 0rem;
+  }
+
+  .new__arrivals-text {
+    align-items: center;
+    height: max-content;
+    row-gap: 1rem;
+    margin: 3rem;
+  }
+
+  .newitem__img {
+    width: max-content;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .new__item {
+    width: calc(100% / 1);
+  }
+}
+
+/*=============== MAIN BOARD ===============*/
+main {
+  margin-top: var(--header-height);
+}
+
+.main__board {
+  display: grid;
+  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(297px, 1fr));
+}
+
+.card {
+  display: grid;
+  justify-content: space-between;
+  width: 297px;
+  height: 410px;
+}
+
+.img__container {
+  position: relative;
+  cursor: pointer;
+}
+
+.card__img {
+  border-radius: 1rem;
+  width: 297px;
+  height: 290px;
+  object-fit: cover;
+}
+
+.wishlist__icon {
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  fill: rgba(0, 0, 0, 0.5);
+  height: 24px;
+  width: 24px;
+  stroke: hsl(0, 0%, 100%);
+  stroke-width: 2;
+  overflow: visible;
+  z-index: var(--z-tooltip);
+}
+
+.info__container {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--normal-font-size);
+}
+
+.card__title {
+  color: black;
+}
+
+.card__subtitle,
+.card__desc {
+  color: rgb(178, 178, 178);
+}
+
+.card__price {
+  margin-top: 10px;
+}
+
+/*=============== SWIPER ===============*/
+
 
 /*=============== FOOTER ===============*/
 
