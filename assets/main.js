@@ -1,12 +1,12 @@
 /*=============== CHANGE BACKGROUND HEADER ===============*/
-const scrollHeader = () => {
-  const header = document.getElementById("header");
+const scrollCat = () => {
+  const category = document.getElementById("category");
   // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
   this.scrollY >= 100
-    ? header.classList.add("scroll-header")
-    : header.classList.remove("scroll-header");
+    ? category.classList.add("scroll-category")
+    : category.classList.remove("scroll-category");
 };
-window.addEventListener("scroll", scrollHeader);
+window.addEventListener("scroll", scrollCat);
 
 /*=============== SLIDER ===============*/
 const carousel = document.querySelector(".carousel");

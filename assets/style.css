@@ -3,7 +3,8 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 11rem;
+  --nav-height: 80px;
+  --cat-height: 6rem;
 
   /*========== Color Reference ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
@@ -109,8 +110,9 @@ img {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  margin-left: 4.5rem;
-  margin-right: 4.5rem;
+  width: 100%;
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
 }
 
 .grid {
@@ -146,22 +148,20 @@ img {
 
 /*=============== HEADER & NAV===============*/
 header {
-  height: var(--header-height);
   position: fixed;
   top: 0;
   background-color: var(--body-color);
   z-index: var(--z-fixed);
-}
-
-.scroll-header {
-  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
+  transition: all 0.4s ease;
 }
 
 .nav {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--body-color);
   display: flex;
   justify-content: space-between;
+  height: var(--nav-height);
 }
 
 .logo__container {
@@ -169,6 +169,7 @@ header {
   display: flex;
   align-items: center;
 }
+
 .logo {
   color: var(--first-color);
   cursor: pointer;
@@ -177,7 +178,7 @@ header {
 .search__sm {
   display: flex;
   padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-  column-gap: 2rem;
+  column-gap: 16px;
   align-items: center;
   justify-content: center;
   border: 1px solid hsl(0, 0%, 87%);
@@ -189,6 +190,11 @@ header {
 
 .search__sm:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.search__sm-devider {
+  border-right: 0.5px solid #f5f4f4;
+  height: 20px;
 }
 
 .search__sm-item {
@@ -207,11 +213,11 @@ header {
   display: block;
   fill: none;
   stroke: currentcolor;
-  stroke-width: 4;
+  stroke-width: 5;
   overflow: visible;
-  height: 30px;
-  width: 30px;
-  padding: 9px;
+  height: 32px;
+  width: 32px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -241,33 +247,26 @@ header {
 }
 
 .devider {
-  border-top: 0.5px solid #f5f4f4;
+  border-top: 0.5px solid rgb(0, 3, 2);
 }
 
 /*=============== SLIDER ===============*/
-.new__arrivals-text {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.new__arrivals-btn {
-  color: white;
-  background-color: var(--first-color);
-  border-radius: 1.5rem;
-  padding: 0.5rem 1rem;
-  font-size: var(--small-font-size);
-  transition: 0.4s;
-}
-
 .category {
   display: grid;
   grid-template-columns: 8fr 1fr;
-  margin-top: 1rem;
   column-gap: 1rem;
   align-items: center;
   justify-content: center;
+  background-color: var(--body-color);
+  height: var(--cat-height);
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.category.scroll-category {
+  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
+  /* height: calc(var(--cat-height)-80px); */
+  padding-top: 0.5rem;
 }
 
 .carousel {
@@ -367,13 +366,6 @@ header {
     padding-top: 0rem;
   }
 
-  .new__arrivals-text {
-    align-items: center;
-    height: max-content;
-    row-gap: 1rem;
-    margin: 3rem;
-  }
-
   .newitem__img {
     width: max-content;
   }
@@ -387,7 +379,7 @@ header {
 
 /*=============== MAIN BOARD ===============*/
 main {
-  margin-top: var(--header-height);
+  margin-top: calc(var(--nav-height) + var(--cat-height));
 }
 
 .main__board {
