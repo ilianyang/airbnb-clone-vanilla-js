@@ -469,9 +469,29 @@ carousel.addEventListener("touchend", dragStop);
 // carousel.addEventListener("touchend", dragStop);
 
 /*=============== IMAGE SWIPER ===============*/
-var swiper = new Swiper(".imgSwiper", {
+var swiper = new Swiper(".mySwiper", {
   pagination: {
     el: ".swiper-pagination",
-    dynamicBullets: true,
-  },
+    dynamicBullets: true
+  }
+});
+
+/*=============== FOOTER TABS ===============*/
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabs = document.querySelectorAll(".tab");
+
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // 隱藏所有選項卡內容
+    tabs.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+
+    // 獲取要顯示的選項卡的 ID
+    const targetId = button.getAttribute("data-target");
+
+    // 顯示對應選項卡的內容
+    const targetTab = document.getElementById(targetId);
+    targetTab.classList.add("active");
+  });
 });
