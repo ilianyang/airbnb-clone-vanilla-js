@@ -262,12 +262,12 @@ const categoryData = [
 ];
 
 // 生成輪播圖
-categoryData.forEach((data, index) => {
+categoryData.forEach((data) => {
   const sliderItem = document.createElement("div");
   sliderItem.classList.add("slider__item");
 
   const img = document.createElement("img");
-  img.src = data.img; // 使用 data 对象中的 img 属性
+  img.src = data.img;
   img.classList.add("slider__img");
   img.draggable = false;
 
@@ -275,12 +275,11 @@ categoryData.forEach((data, index) => {
   sliderTitle.classList.add("slider__title");
 
   const span = document.createElement("span");
-  span.textContent = data.title; // 使用 data 对象中的 title 属性
+  span.textContent = data.title;
 
   sliderTitle.appendChild(span);
   sliderItem.appendChild(img);
   sliderItem.appendChild(sliderTitle);
-
   carousel.appendChild(sliderItem);
 });
 
