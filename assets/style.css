@@ -267,10 +267,6 @@ header {
   border-top: 0.5px solid var(--border-color);
 }
 
-.nav__container-lg-icon {
-
-}
-
 /*=============== SLIDER ===============*/
 .category {
   display: grid;
@@ -527,8 +523,24 @@ footer {
   display: none;
 }
 
-.active {
-  display: block;
+.tab__content .active {
+  display: grid;
+  grid-template-columns: repeat(6, 190px);
+  grid-gap: 20px;
+}
+
+.tab__item {
+  display: grid;
+}
+
+.tab__item-title {
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+}
+
+.tab__item-subtitle {
+  color: var(--text-color-light);
+  font-weight: var(--font-regular);
 }
 
 .footer__title {
@@ -663,7 +675,6 @@ footer {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 360px) {
-  
 }
 
 /* For medium devices */
