@@ -38,8 +38,8 @@
   <body>
     <!--=============== HEADER ===============-->
     <header class="" id="header">
-      <nav>
-        <div class="nav container">
+      <nav class="nav-lg">
+        <div class="nav__container-lg container">
           <div class="logo__container">
             <svg class="logo" width="102" height="32" style="display: block">
               <path
@@ -84,21 +84,19 @@
           <div class="nav__right">
             <span class="nav__text">在 Airbnb 上發布房源</span>
             <div class="globeICon__container">
-              
-            
-            <svg
-              class="globeICon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              aria-hidden="true"
-              role="presentation"
-              focusable="false"
-            >
-              <path
-                d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"
-              ></path>
-            </svg>
-          </div>
+              <svg
+                class="globeICon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+              >
+                <path
+                  d="M8 .25a7.77 7.77 0 0 1 7.75 7.78 7.75 7.75 0 0 1-7.52 7.72h-.25A7.75 7.75 0 0 1 .25 8.24v-.25A7.75 7.75 0 0 1 8 .25zm1.95 8.5h-3.9c.15 2.9 1.17 5.34 1.88 5.5H8c.68 0 1.72-2.37 1.93-5.23zm4.26 0h-2.76c-.09 1.96-.53 3.78-1.18 5.08A6.26 6.26 0 0 0 14.17 9zm-9.67 0H1.8a6.26 6.26 0 0 0 3.94 5.08 12.59 12.59 0 0 1-1.16-4.7l-.03-.38zm1.2-6.58-.12.05a6.26 6.26 0 0 0-3.83 5.03h2.75c.09-1.83.48-3.54 1.06-4.81zm2.25-.42c-.7 0-1.78 2.51-1.94 5.5h3.9c-.15-2.9-1.18-5.34-1.89-5.5h-.07zm2.28.43.03.05a12.95 12.95 0 0 1 1.15 5.02h2.75a6.28 6.28 0 0 0-3.93-5.07z"
+                ></path>
+              </svg>
+            </div>
             <div class="account__icon">
               <svg
                 class="menuIcon"
@@ -126,6 +124,33 @@
           </div>
         </div>
         <hr class="devider" />
+      </nav>
+
+      <nav class="nav-sm">
+        <div class="nav__container-sm container">
+          <svg
+
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+            role="presentation"
+            focusable="false"
+            style="
+              display: block;
+              fill: none;
+              height: 16px;
+              width: 16px;
+              stroke: currentcolor;
+              stroke-width: 4;
+              overflow: visible;
+            "
+          >
+            <path
+              fill="none"
+              d="M7 16H3m26 0H15M29 6h-4m-8 0H3m26 20h-4M7 16a4 4 0 1 0 8 0 4 4 0 0 0-8 0zM17 6a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 20a4 4 0 1 0 8 0 4 4 0 0 0-8 0zm0 0H3"
+            ></path>
+          </svg>
+        </div>
       </nav>
 
       <!--=============== SLIDER ===============-->
@@ -816,6 +841,7 @@
 
     <!--=============== MAIN ===============-->
     <main class="main container">
+      <div class="totalPrice__toggle"></div>
       <section class="main__board section">
         <div class="card">
           <div class="img__container">
@@ -1189,6 +1215,9 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="./assets/main.js"></script>
+
+    <!--=============== LOTTIE JS ===============-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.2/lottie.min.js"></script>
 
     <!--=============== SWIPER JS ===============-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

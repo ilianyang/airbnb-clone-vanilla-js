@@ -472,8 +472,8 @@ carousel.addEventListener("touchend", dragStop);
 var swiper = new Swiper(".mySwiper", {
   pagination: {
     el: ".swiper-pagination",
-    dynamicBullets: true
-  }
+    dynamicBullets: true,
+  },
 });
 
 /*=============== FOOTER TABS ===============*/

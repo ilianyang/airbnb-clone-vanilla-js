@@ -8,7 +8,6 @@
 
   /*========== Color Reference ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --second-hue: 211;
   --first-color: hsl(349, 100%, 61%);
   --text-color: hsl(0, 0%, 0%);
   --text-color-light: hsl(0, 0%, 44%);
@@ -121,7 +120,11 @@ header {
   transition: all 0.4s ease;
 }
 
-.nav {
+.nav-sm {
+  display: none;
+}
+
+.nav__container-lg {
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: var(--body-color);
@@ -264,6 +267,10 @@ header {
   border-top: 0.5px solid var(--border-color);
 }
 
+.nav__container-lg-icon {
+
+}
+
 /*=============== SLIDER ===============*/
 .category {
   display: grid;
@@ -279,8 +286,8 @@ header {
 
 .category.scroll-category {
   box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
-  /* height: calc(var(--cat-height)-80px); */
-  padding-top: 0.5rem;
+  height: calc(var(--cat-height)-100px);
+  padding-top: 0rem;
 }
 
 .carousel {
@@ -371,24 +378,6 @@ header {
   padding: 10px;
   font-size: var(--smaller-font-size);
   cursor: pointer;
-}
-
-/* For small devices */
-@media screen and (max-width: 657px) {
-  .new__arrivals {
-    display: block;
-    padding-top: 0rem;
-  }
-
-  .newitem__img {
-    width: max-content;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .new__item {
-    width: calc(100% / 1);
-  }
 }
 
 /*=============== MAIN BOARD ===============*/
@@ -673,23 +662,19 @@ footer {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 500px) {
-}
-
-@media screen and (max-width: 435px) {
-}
-
-@media screen and (max-width: 400px) {
-}
-
-@media screen and (min-width: 365px) {
-}
-
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
+  
 }
 
 /* For medium devices */
-@media screen and (min-width: 568px) {
+@media screen and (max-width: 767px) {
+  .nav-sm {
+    display: block;
+  }
+
+  .nav-lg {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 767px) {
@@ -697,7 +682,4 @@ footer {
 
 /* For large devices */
 @media screen and (min-width: 996px) {
-}
-
-@media screen and (min-width: 996px) and (min-height: 700px) {
 }
