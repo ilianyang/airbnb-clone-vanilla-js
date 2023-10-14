@@ -115,6 +115,7 @@ img {
 header {
   position: fixed;
   top: 0;
+  width: 100%;
   background-color: var(--body-color);
   z-index: var(--z-fixed);
   transition: all 0.4s ease;
@@ -122,6 +123,10 @@ header {
 
 .nav-sm {
   display: none;
+}
+
+.nav-lg {
+  width: 100%;
 }
 
 .nav__container-lg {
@@ -306,7 +311,7 @@ header {
 
 .slider__wrapper {
   margin-top: 1rem;
-  max-width: 1200px;
+  min-width: 1200px;
   display: flex;
   overflow: hidden;
 }
@@ -513,7 +518,7 @@ footer {
 
 .tab__content .active {
   display: grid;
-  grid-template-columns: repeat(6, 190px);
+  grid-template-columns: repeat(6, calc(100%/6));
   grid-gap: 20px;
 }
 
@@ -673,6 +678,10 @@ footer {
 
   .nav-lg {
     display: none;
+  }
+
+  .tab__content .active {
+    grid-template-columns: repeat(3, calc(100%/3));
   }
 }
 
